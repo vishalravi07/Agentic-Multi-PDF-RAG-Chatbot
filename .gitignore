@@ -1,33 +1,14 @@
-
-# Environment variables and secrets
 .env
 .env.*
 !.env.example
 
-# Python virtual environment
 venv/
 .venv/
-env/
-
-# Python cache
 __pycache__/
-*.py[cod]
-
-# Testing and logs
 .pytest_cache/
-.coverage
-*.log
 
-# User data and databases
 users.db
 *.sqlite
 *.sqlite3
+
 uploads/
-
-# IDE settings
-.vscode/
-
-# Local databases and backups
-*.sql
-*.dump
-*.bak

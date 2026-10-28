@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv(Path(__file__).resolve().parent / ".env")
 
 # --- App API key (clients send it as the X-API-Key header) ---
-APP_API_KEY = os.getenv("APP_API_KEY", "").strip()
+APP_API_KEY = os.getenv("APP_API_KEY", "").strip()      
 
 # --- LLM provider ---
 # "groq" = hosted Groq API (needs GROQ_API_KEY), "ollama" = local Ollama server.
