@@ -1,7 +1,10 @@
 import os
+from pathlib import Path
+from urllib.parse import quote_plus
+
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(Path(__file__).resolve().parent / ".env")
 
 # --- App API key (clients send it as the X-API-Key header) ---
 APP_API_KEY = os.getenv("APP_API_KEY", "").strip()
@@ -37,10 +40,10 @@ POSTGRES_HOST = os.getenv("POSTGRES_HOST", "localhost")
 POSTGRES_PORT = os.getenv("POSTGRES_PORT", "5432")
 POSTGRES_DB = os.getenv("POSTGRES_DB", "rag_assistant")
 POSTGRES_USER = os.getenv("POSTGRES_USER", "postgres")
-POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD", "root%40123")
+POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD", "root@123")
 
-DATABASE_URL = (
-    f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}"
+DATABASE_URL = os.getenv("DATABASE_URL") or (
+    f"postgresql://{quote_plus(POSTGRES_USER)}:{quote_plus(POSTGRES_PASSWORD)}"
     f"@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}"
 )
 
